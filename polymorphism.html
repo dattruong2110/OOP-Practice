@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Polymorphism</title>
+  </head>
+  <body>
+    <script>
+      class Student {
+        constructor(id, name, age) {
+          this.id = id;
+          this.name = name;
+          this.age = age;
+        }
+
+        get getId() {
+          return this.id;
+        }
+
+        // set setId(id) {
+        //   this.id = id;
+        // } -> không cho set lại ID
+
+        get getName() {
+          return this.name;
+        }
+
+        set setName(name) {
+          this.name = name;
+        }
+
+        get getAge() {
+          return this.age;
+        }
+
+        set setAge(age) {
+          this.age = age;
+        }
+
+        speakEnglish() {
+          return "Speak English";
+        }
+      }
+
+      class GoodStudent extends Student {
+        constructor(id, name, age, level) {
+          super(id, name, age);
+          this.level = level;
+        }
+
+        get getLevel() {
+          return this.level;
+        }
+
+        set setLevel(level) {
+          this.level = level;
+        }
+
+        speakEnglish() {
+          return "Hello C06";
+        }
+      }
+
+      class WeakStudent extends Student {
+        constructor(id, name, age, level) {
+          super(id, name, age);
+          this.level = level;
+        }
+
+        get getLevel() {
+          return this.level;
+        }
+
+        set setLevel(level) {
+          this.level = level;
+        }
+
+        speakEnglish() {
+          return "Xin chao C06";
+        }
+      }
+
+      let teo = new Student(1, "Tèo", 18);
+      console.log(teo);
+      console.log(teo.speakEnglish());
+
+      let ty = new GoodStudent(1, "Tý", 18, "Good");
+      console.log(ty);
+      console.log(ty.speakEnglish());
+
+      let to = new WeakStudent(1, "Tồ", 18, "Weak");
+      console.log(to);
+      console.log(to.speakEnglish());
+    </script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Encapsulation</title>
+  </head>
+  <body>
+    <script>
+      class Student {
+        constructor(id, name, age) {
+          this.id = id;
+          this.name = name;
+          this.age = age;
+        }
+
+        get getId() {
+          return this.id;
+        }
+
+        // set setId(id) {
+        //   this.id = id;
+        // } -> không cho set lại ID
+
+        get getName() {
+          return this.name;
+        }
+
+        set setName(name) {
+          this.name = name;
+        }
+
+        get getAge() {
+          return this.age;
+        }
+
+        set setAge(age) {
+          this.age = age;
+        }
+      }
+
+      let teo = new Student(1, "Tèo", 17);
+      console.log("Name1: " + teo.name); // "Tèo" -> violent encapsulation in OOP -> not recommend
+      console.log("Name2: " + teo.getName); // "Tèo" -> ensure encapsulation in OOP -> recommend
+
+      teo.age = 18;
+      console.log("Age1: " + teo.getAge); // 18 -> violent encapsulation in OOP -> not recommend
+      teo.setAge = 18;
+      console.log("Age2: " + teo.getAge); // 18 -> ensure encapsulation in OOP -> recommend
+
+      teo.setId = 2;
+      console.log("ID: " + teo.getId); // ID: 1
+    </script>
+  </body>
+</html>

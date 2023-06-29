@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Abstraction</title>
+  </head>
+  <body>
+    <script>
+      class Vehicle {
+        constructor(id, name, capacity) {
+          this.id = id;
+          this.name = name;
+          this.capacity = capacity;
+        }
+
+        get getId() {
+          return this.id;
+        }
+
+        get getName() {
+          return this.name;
+        }
+
+        set setName(name) {
+          this.name = name;
+        }
+
+        get getCapacity() {
+          return this.capacity;
+        }
+
+        set setCapacity(capacity) {
+          this.capacity = capacity;
+        }
+
+        run() {
+          console.log("Vehicle is running...");
+        }
+      }
+
+      class Car extends Vehicle {
+        constructor(id, name, color, capacity, isSpareWeel) {
+          super(id, name, capacity);
+          this.color = color;
+          this.isSpareWeel = isSpareWeel;
+        }
+
+        get getId() {
+          return this.id;
+        }
+
+        get getName() {
+          return this.name;
+        }
+
+        set setName(name) {
+          this.name = name;
+        }
+
+        get getColor() {
+          return this.color;
+        }
+
+        set setColor(color) {
+          this.color = color;
+        }
+
+        get getCapacity() {
+          return this.capacity;
+        }
+
+        set setCapacity(capacity) {
+          this.capacity = capacity;
+        }
+
+        get getIsSpareWeel() {
+          return this.isSpareWeel;
+        }
+
+        set setIsSpareWeel(isSpareWeel) {
+          this.isSpareWeel = isSpareWeel;
+        }
+
+        run() {
+          console.log("Car is running...");
+        }
+      }
+
+      class Taxi extends Vehicle {
+        constructor(id, name, capacity) {
+          super(id, name, capacity);
+        }
+
+        get getId() {
+          return this.id;
+        }
+
+        get getName() {
+          return this.name;
+        }
+
+        set setName(name) {
+          this.name = name;
+        }
+
+        get getCapacity() {
+          return this.capacity;
+        }
+
+        set setCapacity(capacity) {
+          this.capacity = capacity;
+        }
+
+        run() {
+          console.log("Taxi is running...");
+        }
+      }
+
+      let vehicle = new Vehicle(1, "Xe cộ", 4);
+      console.log(vehicle);
+
+      let car = new Car(1, "Xe hơi", "Red", 8, true);
+      console.log(car);
+
+      let taxi = new Taxi(1, "Xe taxi", 7);
+      console.log(taxi);
+    </script>
+  </body>
+</html>

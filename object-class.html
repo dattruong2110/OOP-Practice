@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Object - Class</title>
+  </head>
+  <body>
+    <script>
+      function Student(id, name, age) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+
+        this.learnCode = function (programmingLanguage) {
+          return programmingLanguage;
+        };
+
+        // getter/setter
+        this.getId = function () {
+          return this.id;
+        };
+
+        this.getName = function () {
+          return this.name;
+        };
+
+        this.setName = function (name) {
+          this.name = name;
+        };
+
+        this.getAge = function () {
+          return this.age;
+        };
+
+        this.setAge = function (age) {
+          this.age = age;
+        };
+      }
+
+      let teo = new Student(1, "Tèo", 17);
+      console.log(teo);
+      console.log(
+        teo.getName() +
+          " learning " +
+          teo.learnCode("Javascript") +
+          " programming language!"
+      );
+
+      console.log("Name0: " + teo.name); // Tèo -> not recommend
+      teo.name = "Tèo Nguyễn";
+      console.log("Name2: " + teo.name); // Tèo Nguyễn -> not recommend
+
+      console.log("Name3: " + teo.getName()); // Tèo Nguyễn -> recommend
+      teo.setName("Nguyễn Văn Tèo");
+      console.log("Name4: " + teo.getName()); // Nguyễn Văn Tèo -> recommend
+    </script>
+  </body>
+</html>

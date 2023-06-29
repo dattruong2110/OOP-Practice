@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Mobile Class Situation</title>
+  </head>
+  <body>
+    <script>
+      class Mobile {
+        constructor(battery, composeMemory, inboxMemory, sendMemory, status) {
+          this.battery = battery;
+          this.composeMemory = composeMemory;
+          this.inboxMemory = inboxMemory;
+          this.sendMemory = sendMemory;
+          this.status = status;
+        }
+
+        get getBattery() {
+          return this.battery;
+        }
+
+        set setBattery(battery) {
+          this.battery = battery;
+        }
+
+        get getComposeMemory() {
+          return this.composeMemory;
+        }
+
+        set setComposeMemory(composeMemory) {
+          this.composeMemory = composeMemory;
+        }
+
+        get getInboxMemory() {
+          return this.inboxMemory;
+        }
+
+        set setInboxMemory(inboxMemory) {
+          this.inboxMemory = inboxMemory;
+        }
+
+        get getSendMemory() {
+          return this.sendMemory;
+        }
+
+        set setSendMemory(sendMemory) {
+          this.sendMemory = sendMemory;
+        }
+
+        get getStatus() {
+          return this.status;
+        }
+
+        set setStatus(status) {
+          this.status = status;
+        }
+
+        isOn() {
+          return this.getStatus;
+        }
+
+        useMobile() {
+          this.battery--;
+        }
+
+        turnOn() {
+          if (!this.isOn()) {
+            if (this.getBattery > 0 && this.getBattery <= 100) {
+              this.useMobile();
+              this.setStatus = true;
+            }
+          }
+        }
+
+        turnOff() {
+          if (this.isOn()) {
+            if (this.getBattery > 0 && this.getBattery <= 100) {
+              this.useMobile();
+              this.setStatus = false;
+            }
+          }
+        }
+
+        chargeBattery() {
+          if (this.getBattery < 100 && this.getBattery >= 0) {
+            this.battery++;
+          }
+        }
+
+        composeMessage(message) {
+          if (this.isOn()) {
+            this.useMobile();
+            this.setComposeMemory = message;
+          }
+        }
+
+        receiveMessage() {
+          if (this.isOn()) {
+            this.useMobile();
+            return "You've a message!";
+          }
+        }
+
+        sendMessage(toMobile) {
+          if (this.isOn()) {
+            this.useMobile();
+            this.setSendMemory = this.getComposeMemory;
+            toMobile.setInboxMemory = this.getSendMemory;
+          }
+        }
+
+        seenMessage() {
+          if (this.isOn()) {
+            this.useMobile();
+            return this.getInboxMemory;
+          }
+        }
+      }
+
+      const samsung = new Mobile(80, "", "", "", true);
+      const iPhone = new Mobile(90, "", "", "", true);
+
+      const composingMessage = prompt("Enter your message: ");
+      iPhone.composeMessage(composingMessage);
+      iPhone.sendMessage(samsung);
+
+      const isCheck = samsung.receiveMessage();
+      if (isCheck != "") {
+        alert("Message is: " + samsung.seenMessage());
+      }
+    </script>
+  </body>
+</html>
